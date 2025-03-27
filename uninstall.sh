@@ -7,13 +7,13 @@ echo "Uninstalling Reminder App..."
 
 # Stop and disable the systemd service
 echo "Stopping and disabling systemd service..."
-systemctl --user stop reminder-app.service 2>/dev/null || true
-systemctl --user disable reminder-app.service 2>/dev/null || true
-systemctl --user daemon-reload
+sudo systemctl stop reminder-app.service 2>/dev/null || true
+sudo systemctl disable reminder-app.service 2>/dev/null || true
+sudo systemctl daemon-reload
 
 # Remove systemd service file
 echo "Removing systemd service file..."
-rm -f ~/.config/systemd/user/reminder-app.service
+sudo rm -f /etc/systemd/system/reminder-app.service
 
 # Remove the main executable
 echo "Removing application executable..."

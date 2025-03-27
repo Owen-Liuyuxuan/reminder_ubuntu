@@ -37,11 +37,11 @@ sudo cp reminder-app.desktop /usr/share/applications/
 
 # Install systemd service
 echo "Installing systemd service..."
-mkdir -p ~/.config/systemd/user/
-cp reminder-app.service ~/.config/systemd/user/
-systemctl --user daemon-reload
-systemctl --user enable reminder-app.service
-systemctl --user start reminder-app.service
+# Install system-level service
+sudo cp reminder-app.service /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable reminder-app.service
+sudo systemctl start reminder-app.service
 
 echo "Installation complete! You can now find Reminder App in your applications menu."
 echo "The reminder service has been installed and started."
