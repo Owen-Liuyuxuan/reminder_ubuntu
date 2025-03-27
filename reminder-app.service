@@ -1,0 +1,15 @@
+[Unit]
+Description=Reminder App Background Service
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/reminder-app --background
+Restart=on-failure
+RestartSec=5
+User=%u
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=%h/.Xauthority
+
+[Install]
+WantedBy=default.target
